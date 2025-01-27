@@ -8,7 +8,17 @@ import re
 import json
 import os
 
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins. Replace with specific domains if needed.
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 # Define a list of Uzbek stop words
 UZBEK_STOP_WORDS = []
